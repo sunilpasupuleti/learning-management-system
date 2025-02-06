@@ -1,0 +1,46 @@
+.footer {
+  background-color: #0c0f2a;
+  padding: 3rem;
+  padding-bottom: 7rem;
+  max-height: var(--footer-height);
+}
+
+.footer.courseView {
+  width: 70%;
+}
+
+.footer .logo {
+  width: 250px;
+}
+
+.input {
+  background-color: #1f2041;
+  padding: 1rem 1rem;
+  width: 60%;
+  font-size: 1rem;
+  height: 60px;
+  color: #fff;
+  border: none;
+}
+
+.input:focus,
+.input:active {
+  outline: none;
+}
+
+.input::placeholder {
+  color: #ddd;
+}
+
+.subscriptionContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.subscriptionContainer button {
+  height: 60px;
+}
+
+@media (max-width: 768px) {
+}

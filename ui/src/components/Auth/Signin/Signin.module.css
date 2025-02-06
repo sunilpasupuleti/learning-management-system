@@ -1,0 +1,35 @@
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.subtitle {
+  color: #f60840;
+  font-size: 14px;
+  letter-spacing: 0.64px;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.forgotPass {
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 14px;
+  color: blue;
+  display: flex;
+  justify-content: end;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}

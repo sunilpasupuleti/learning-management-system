@@ -1,0 +1,58 @@
+.navLogo {
+  width: 180px;
+  object-fit: cover;
+}
+
+.item {
+  color: #272727;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-left: 1.3rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.activeItem {
+  color: var(--primary);
+  font-weight: bolder;
+}
+
+.item:hover {
+  color: var(--primary);
+}
+
+.item.active {
+  color: var(--primary);
+}
+
+.paper {
+  background-color: red !important;
+}
+
+.navToolbar {
+}
+
+.navLogoToolbar {
+  width: 150px;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.userName:hover {
+  color: #272727;
+}
+
+@media (max-width: 768px) {
+  .navLogo {
+    width: 150px;
+    object-fit: cover;
+    padding: 1rem 0rem;
+  }
+  .navLogoToolbar {
+    display: block;
+  }
+}
