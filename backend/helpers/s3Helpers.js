@@ -21,7 +21,7 @@ async function uploadMultipleToS3(files) {
     try {
       const uploadPromises = files.map(async (file) => {
         try {
-          const s3Key = file.path; // Adjust the S3 key as needed
+          const s3Key = file.path;
           const uploadParams = {
             Bucket: bucket,
             Key: s3Key,

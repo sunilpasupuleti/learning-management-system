@@ -16,6 +16,7 @@ import Users from "../components/Admin/Users/Users";
 import UsersHome from "../components/Admin/Users/UsersHome";
 import CreateEditUser from "../components/Admin/Users/CreateEditUser";
 import BatchesHome from "../components/Admin/Batches/BatchesHome";
+import Courses from "../components/Admin/Courses/Courses";
 
 const Layout = (props) => {
   const location = useLocation();
@@ -60,6 +61,8 @@ const Layout = (props) => {
                   element={<CreateEditBatch mode={"edit"} />}
                 />
               </Route>
+              <Route path="courses" element={<Courses title="Courses" />} />
+
               <Route path="users" element={<UsersHome title="Users" />}>
                 <Route path="" element={<Users title="Users" />} />
                 <Route

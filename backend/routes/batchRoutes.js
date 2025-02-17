@@ -21,7 +21,21 @@ const router = express.Router();
 
 let adminAndSuperAdminRoles = [superAdminRole, adminRole];
 
-// Get Students and trainers
+/**
+ * @swagger
+ * /batch/students-trainers:
+ *   get:
+ *     summary: Get students and trainers assigned to batches
+ *     tags:
+ *       - Batch Management
+ *     security:
+ *       - BearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved students and trainers list
+ *       403:
+ *         description: Unauthorized access
+ */
 router
   .route("/students-trainers")
   .get(
@@ -31,21 +45,143 @@ router
 
 updateStudentsTrainers;
 
-// Get batch Details
+/**
+ * @swagger
+ * /batch/{id}:
+ *   get:
+ *     summary: Get batch details by ID
+ *     tags:
+ *       - Batch Management
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Batch details retrieved successfully
+ *       404:
+ *         description: Batch not found
+ */
 router.route("/:id").get(validateParamsObjectId(), getBatch);
 
-// Get batches
+/**
+ * @swagger
+ * /batch:
+ *   get:
+ *     summary: Get all batches
+ *     tags:
+ *       - Batch Management
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved batch list
+ *       403:
+ *         description: Unauthorized access
+ */
 router.route("/").get(getBatches);
 
-// create Batch
+/**
+ * @swagger
+ * /batch:
+ *   post:
+ *     summary: Create a new batch
+ *     tags:
+ *       - Batch Management
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               code:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Batch created successfully
+ *       400:
+ *         description: Invalid input data
+ */
+
 router.route("/").post(validateCreateBatch, createBatch);
 
-// update student trainers
+/**
+ * @swagger
+ * /batch/{id}/students-trainers:
+ *   put:
+ *     summary: Update students and trainers assigned to a batch
+ *     tags:
+ *       - Batch Management
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               role:
+ *                 type: string
+ *               userId:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Batch students and trainers updated successfully
+ *       400:
+ *         description: Invalid input data
+ *       404:
+ *         description: Batch not found
+ */
 router
   .route("/:id/students-trainers")
   .put(validateParamsObjectId(), updateStudentsTrainers);
 
-// update batch
+/**
+ * @swagger
+ * /batch/{id}:
+ *   put:
+ *     summary: Update batch details
+ *     tags:
+ *       - Batch Management
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               code:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Batch updated successfully
+ *       400:
+ *         description: Invalid input data
+ *       404:
+ *         description: Batch not found
+ */
 router.route("/:id").put(
   (req, res, next) => {
     req.mode = "update";
@@ -56,7 +192,27 @@ router.route("/:id").put(
   editBatch
 );
 
-// delete batch
+/**
+ * @swagger
+ * /batch/{id}:
+ *   delete:
+ *     summary: Delete a batch
+ *     tags:
+ *       - Batch Management
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       204:
+ *         description: Batch deleted successfully
+ *       404:
+ *         description: Batch not found
+ */
 router.route("/:id").delete(validateParamsObjectId(), deleteBatch);
 
 module.exports = router;

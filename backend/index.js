@@ -18,6 +18,22 @@ const cookieParser = require("cookie-parser");
 const { initSocket } = require("./sockets/socketManager");
 const { dbBackup, sendBackupMessage } = require("./config/dbBackup");
 const schedule = require("node-schedule");
+const swaggerDocs = require("./config/swaggerConfig");
+const swaggerUi = require("swagger-ui-express");
+
+// Swagger Configuration
+const swaggerOptions = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "LMS API Documentation",
+      version: "1.0.0",
+      description: "API documentation for Learning Management System",
+    },
+  },
+  apis: ["./routes/*.js"], // Path to the API routes (adjust based on your project structure)
+};
+
 /**
  * Morgon
  */
@@ -53,6 +69,9 @@ app.use(
  * Connect to database
  */
 connectDB();
+
+// Initialize Swagger
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(
   cors({

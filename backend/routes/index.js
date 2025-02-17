@@ -20,4 +20,7 @@ router.use(
   require("./batchRoutes")
 );
 
+// Course Routes
+router.use("/course", VerifyToken, require("./courseRoutes"));
+
 module.exports = router;
