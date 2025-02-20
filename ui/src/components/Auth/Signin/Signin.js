@@ -129,7 +129,7 @@ const Signin = ({ title }) => {
         },
         (error) => {
           console.log(error);
-          if (error.status && error.status === "notVerified") {
+          if (error?.status && error?.status === "notVerified") {
             Swal.fire({
               title: error.message,
               text: "Click below to resend verification link!",

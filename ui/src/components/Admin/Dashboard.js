@@ -193,7 +193,12 @@ const Dashboard = ({ title }) => {
       ],
       icon: <FaUsersViewfinder size={25} />,
     },
-
+    {
+      name: "Courses",
+      path: "/dashboard/courses",
+      active: ["/dashboard/courses", "/dashboard/courses/view"],
+      icon: <MdCastForEducation size={25} />,
+    },
     {
       name: "Sign Out",
       icon: <MdLogout size={25} />,
