@@ -88,7 +88,6 @@ const Courses = ({ title }) => {
     }
   };
 
-
   const getCourses = () => {
     onGetCourses(
       (result) => {
@@ -122,22 +121,22 @@ const Courses = ({ title }) => {
   };
 
   const onClickEditCourse = (course) => {
-    navigate(“?mode=edit&id=“ + course._id);
+    navigate("?mode=edit&id=" + course._id);
   };
 
   const onClickDeleteCourse = (course) => {
     Swal.fire({
-      title: “Are you sure to delete?”,
+      title: "Are you sure to delete?",
       text: `${course.title}`,
-      icon: “warning”,
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: “#d33”,
-      cancelButtonColor: “#3085d6”,
-      confirmButtonText: “Yes, delete it!”,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
         onDeleteCourse(course._id, (result) => {
-          onEmitEvent(“refreshCourses”);
+          onEmitEvent("refreshCourses");
         });
       }
     });
@@ -150,7 +149,7 @@ const Courses = ({ title }) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  
+
   return (
     <section>
       {!mode && (
@@ -243,8 +242,7 @@ const Courses = ({ title }) => {
           )}
         </>
       )}
-           {mode && <CreateEditCourse mode={mode} />}
-
+      {mode && <CreateEditCourse mode={mode} />}
     </section>
   );
 };
