@@ -88,6 +88,69 @@ const Courses = ({ title }) => {
     }
   };
 
+
+  const getCourses = () => {
+    onGetCourses(
+      (result) => {
+        setLoading(false);
+        if (result && result.courses) {
+          setCourses(result.courses);
+          setOrgCourses(result.courses);
+        }
+      },
+      true,
+      false
+    );
+  };
+
+  const onChangeSearchKeyword = (e) => {
+    let value = e.target.value;
+    setSearchKeyword(value);
+    let filtered = orgCourses;
+    if (value) {
+      value = value.toLowerCase();
+      let finalCourses = _.cloneDeep(orgCourses);
+      filtered = finalCourses.filter((course) => {
+        let { title, headline } = course;
+        let titleFound = title.toLowerCase().includes(value);
+        let headlineFound = headline.toLowerCase().includes(value);
+
+        return titleFound || headlineFound;
+      });
+    }
+    setCourses(filtered);
+  };
+
+  const onClickEditCourse = (course) => {
+    navigate(“?mode=edit&id=“ + course._id);
+  };
+
+  const onClickDeleteCourse = (course) => {
+    Swal.fire({
+      title: “Are you sure to delete?”,
+      text: `${course.title}`,
+      icon: “warning”,
+      showCancelButton: true,
+      confirmButtonColor: “#d33”,
+      cancelButtonColor: “#3085d6”,
+      confirmButtonText: “Yes, delete it!”,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        onDeleteCourse(course._id, (result) => {
+          onEmitEvent(“refreshCourses”);
+        });
+      }
+    });
+  };
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+  
   return (
     <section>
       {!mode && (
@@ -180,6 +243,8 @@ const Courses = ({ title }) => {
           )}
         </>
       )}
+           {mode && <CreateEditCourse mode={mode} />}
+
     </section>
   );
 };
