@@ -1,0 +1,51 @@
+.playButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem !important;
+}
+
+.playButton {
+  color: skyblue !important;
+  font-weight: bolder;
+  transition: all ease 0.5s;
+}
+
+.playButton:hover {
+  color: tomato !important;
+}
+
+.actionButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem !important;
+}
+
+.reOrderButton,
+.editButton,
+.deleteButton {
+  background-color: skyblue;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.deleteButton {
+  background-color: tomato;
+}
+
+.reOrderButton:hover,
+.editButton:hover,
+.deleteButton:hover {
+  transform: scale(1.1);
+}
+
+.checkboxActionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

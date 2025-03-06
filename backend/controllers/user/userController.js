@@ -169,7 +169,6 @@ module.exports = {
             verified: true,
             batches: [batch._id],
           });
-          console.log(user);
           batch.students.push(user._id);
           await batch.save();
         }

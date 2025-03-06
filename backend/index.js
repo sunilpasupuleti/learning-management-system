@@ -150,6 +150,8 @@ server.listen(process.env.PORT || 8080, async () => {
   logger.info(`server started on port number ${process.env.PORT} }`);
   let pattern = "0 0 */4 * * *"; //for every 4 hours
   // let pattern = "*/1 * * * *";
+  // let pattern = "*/10 * * * * *";
+
   job = schedule.scheduleJob(pattern, async () => {
     try {
       console.log("Running Database backup task...");

@@ -21,6 +21,9 @@ router.use(
 );
 
 // Course Routes
+
 router.use("/course", VerifyToken, require("./courseRoutes"));
+// Resource Routes
+router.use("/resource", VerifyToken, require("./resourceRoutes"));
 
 module.exports = router;

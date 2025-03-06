@@ -19,6 +19,8 @@ import BatchesHome from "../components/Admin/Batches/BatchesHome";
 import Courses from "../components/Admin/Courses/Courses";
 import { BatchesContextProvider } from "../services/Batches/Batches.context";
 import { CourseContextProvider } from "../services/Courses/Courses.context";
+import { ResourcesContextProvider } from "../services/Resources/Resources.context";
+import Resources from "../components/Admin/Resources/Resources";
 
 const Layout = (props) => {
   const location = useLocation();
@@ -30,6 +32,14 @@ const Layout = (props) => {
           <Courses title={title} />
         </CourseContextProvider>
       </BatchesContextProvider>
+    );
+  };
+
+  const ResourcesElement = ({ title }) => {
+    return (
+      <ResourcesContextProvider>
+        <Resources title={title} />
+      </ResourcesContextProvider>
     );
   };
 
@@ -76,6 +86,10 @@ const Layout = (props) => {
               <Route
                 path="courses"
                 element={<CoursesElement title="Courses" />}
+              />
+              <Route
+                path="resources"
+                element={<ResourcesElement title="Resources" />}
               />
 
               <Route path="users" element={<UsersHome title="Users" />}>

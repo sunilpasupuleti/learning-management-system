@@ -200,6 +200,12 @@ const Dashboard = ({ title }) => {
       icon: <MdCastForEducation size={25} />,
     },
     {
+      name: "Resources",
+      path: "/dashboard/resources",
+      active: ["/dashboard/resources"],
+      icon: <GrResources size={25} />,
+    },
+    {
       name: "Sign Out",
       icon: <MdLogout size={25} />,
       onClick: onClickLogout,

@@ -66,7 +66,6 @@ module.exports = {
     user = await Users.findOne({
       _id: user._id,
     });
-    console.log(user);
     if (role === userRole) {
       query = {
         visible: true,
