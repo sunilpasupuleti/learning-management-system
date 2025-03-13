@@ -20,6 +20,9 @@ router.use(
   require("./batchRoutes")
 );
 
+// Quiz Routes
+router.use("/quiz", VerifyToken, require("./quizRoutes"));
+
 // Course Routes
 
 router.use("/course", VerifyToken, require("./courseRoutes"));
