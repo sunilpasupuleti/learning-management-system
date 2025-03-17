@@ -1,0 +1,29 @@
+.questionContainer {
+  margin: 2rem 0rem 1rem 0rem;
+}
+
+.question {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.options {
+  margin-top: 1rem;
+}
+
+.questionFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.datesContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.datesContainer p {
+  padding-top: 1rem;
+}
