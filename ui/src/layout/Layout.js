@@ -21,6 +21,9 @@ import { BatchesContextProvider } from "../services/Batches/Batches.context";
 import { CourseContextProvider } from "../services/Courses/Courses.context";
 import { ResourcesContextProvider } from "../services/Resources/Resources.context";
 import Resources from "../components/Admin/Resources/Resources";
+import QuizHome from "../components/Admin/Quiz/QuizHome";
+import Quiz from "../components/Admin/Quiz/Quiz";
+import CreateEditQuiz from "../components/Admin/Quiz/CreateEditQuiz";
 
 const Layout = (props) => {
   const location = useLocation();
@@ -99,6 +102,14 @@ const Layout = (props) => {
                   element={<CreateEditUser mode={"create"} />}
                 />
                 <Route path="edit" element={<CreateEditUser mode={"edit"} />} />
+              </Route>
+              <Route path="quiz" element={<QuizHome title="Quiz" />}>
+                <Route path="" element={<Quiz title="Quiz" />} />
+                <Route
+                  path="create"
+                  element={<CreateEditQuiz mode={"create"} />}
+                />
+                <Route path="edit" element={<CreateEditQuiz mode={"edit"} />} />
               </Route>
             </Route>
             <Route path="*" element={<PageNotFound title="Page Not Found" />} />

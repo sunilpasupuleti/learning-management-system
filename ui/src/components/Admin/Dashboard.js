@@ -184,6 +184,16 @@ const Dashboard = ({ title }) => {
       icon: <MdGroups size={25} />,
     },
     {
+      name: "Quizes",
+      path: "/dashboard/quiz",
+      active: [
+        "/dashboard/quiz",
+        "/dashboard/quiz/create",
+        "/dashboard/quiz/edit",
+      ],
+      icon: <MdAssignment size={25} />,
+    },
+    {
       name: "Batches",
       path: "/dashboard/batches",
       active: [
