@@ -29,4 +29,7 @@ router.use("/course", VerifyToken, require("./courseRoutes"));
 // Resource Routes
 router.use("/resource", VerifyToken, require("./resourceRoutes"));
 
+// Report Routes
+router.use("/report", VerifyToken, require("./reportRoutes"));
+
 module.exports = router;
