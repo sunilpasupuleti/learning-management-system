@@ -204,6 +204,12 @@ const Dashboard = ({ title }) => {
       icon: <FaUsersViewfinder size={25} />,
     },
     {
+      name: "Reports",
+      path: "/dashboard/reports",
+      active: ["/dashboard/reports", "/dashboard/reports/view"],
+      icon: <TbFileReport size={25} />,
+    },
+    {
       name: "Courses",
       path: "/dashboard/courses",
       active: ["/dashboard/courses", "/dashboard/courses/view"],

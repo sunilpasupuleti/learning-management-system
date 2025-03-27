@@ -24,6 +24,9 @@ import Resources from "../components/Admin/Resources/Resources";
 import QuizHome from "../components/Admin/Quiz/QuizHome";
 import Quiz from "../components/Admin/Quiz/Quiz";
 import CreateEditQuiz from "../components/Admin/Quiz/CreateEditQuiz";
+import { ReportsContextProvider } from "../services/Reports/Reports.context";
+import Reports from "../components/Admin/Reports/Reports";
+import ReportView from "../components/Admin/Reports/ReportView";
 
 const Layout = (props) => {
   const location = useLocation();
@@ -43,6 +46,22 @@ const Layout = (props) => {
       <ResourcesContextProvider>
         <Resources title={title} />
       </ResourcesContextProvider>
+    );
+  };
+
+  const ReportsElement = ({ title }) => {
+    return (
+      <ReportsContextProvider>
+        <Reports title={title} />
+      </ReportsContextProvider>
+    );
+  };
+
+  const ReportViewElement = ({ title }) => {
+    return (
+      <ReportsContextProvider>
+        <ReportView title={title} />
+      </ReportsContextProvider>
     );
   };
 
@@ -111,6 +130,15 @@ const Layout = (props) => {
                 />
                 <Route path="edit" element={<CreateEditQuiz mode={"edit"} />} />
               </Route>
+              <Route
+                path="reports"
+                element={<ReportsElement title="Reports" />}
+              />
+
+              <Route
+                path="reports/view"
+                element={<ReportViewElement title="View Report" />}
+              />
             </Route>
             <Route path="*" element={<PageNotFound title="Page Not Found" />} />
           </Routes>
