@@ -112,6 +112,8 @@ const useHttp = () => {
                   });
                 }
               } catch (err) {
+                console.log(err);
+
                 // if refresh token also expired
                 if (
                   err.response &&
