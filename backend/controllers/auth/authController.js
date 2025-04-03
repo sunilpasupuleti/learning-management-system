@@ -30,6 +30,7 @@ const returnLoginCookies = (data, res) => {
   accessToken = cryptoEncrypt(accessToken);
   let refreshToken = getJwt(data, "30d");
   refreshToken = cryptoEncrypt(refreshToken);
+  console.log(accessToken, refreshToken);
 
   var accessTokenmaxAge = 1 * 60 * 60 * 1000;
   var refreshTokenmaxAge = 30 * 24 * 60 * 60 * 1000;
@@ -132,6 +133,7 @@ module.exports = {
   async signin(req, res) {
     const { email } = req.body;
     let signInData;
+
     var userData = await Users.findOne({
       email: lowercase(email),
     }).populate("batches");
@@ -146,9 +148,10 @@ module.exports = {
       email: em,
       role: role,
       verified: verified,
-      batchNames,
     };
+
     returnLoginCookies(signInData, res);
+
     return sendResponse(res, httpCodes.OK, {
       message: "Login successfull",
       userData: signInData,
@@ -356,8 +359,11 @@ module.exports = {
         subject: "Password Reset Request",
         text: `Click the following link to reset your password: ${resetLink}`,
       };
-      res.cookie('accessToken', '', { ...cookieOptions, expires: new Date(0) });
-      res.cookie('refreshToken', '', { ...cookieOptions, expires: new Date(0) });
+      res.cookie("accessToken", "", { ...cookieOptions, expires: new Date(0) });
+      res.cookie("refreshToken", "", {
+        ...cookieOptions,
+        expires: new Date(0),
+      });
 
       smtpTransport.sendMail(mailOptions, async (error, info) => {
         if (error) {

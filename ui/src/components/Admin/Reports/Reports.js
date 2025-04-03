@@ -45,8 +45,8 @@ const Reports = ({ title }) => {
 
   const [loading, setLoading] = useState(true);
 
-  const [reportsBy, setReportsBy] = useState("quiz");
-  const previousReportsBy = useRef("quiz");
+  const [reportsBy, setReportsBy] = useState("batches");
+  const previousReportsBy = useRef("batches");
 
   const onChangeReportsBy = (event, newValue) => {
     setSearchKeyword("");

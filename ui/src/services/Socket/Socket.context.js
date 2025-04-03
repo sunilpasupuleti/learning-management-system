@@ -18,7 +18,7 @@ export const SocketContextProvider = ({ children }) => {
       let query = `id=${metadata._id}`;
       var socketConnect = io(process.env.REACT_APP_SOCKET_URL, {
         // path: "/lms",
-        // addTrailingSlash: false,
+        // addTrailingSlash: true,
         transports: ["websocket"],
         query,
       });
