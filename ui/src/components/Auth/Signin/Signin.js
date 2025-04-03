@@ -124,7 +124,7 @@ const Signin = ({ title }) => {
           redirect
             ? navigate("/" + redirect)
             : res.userData?.role === userRole
-            ? navigate("/student/quiz")
+            ? navigate("/student/profile")
             : navigate("/dashboard/reports");
         },
         (error) => {

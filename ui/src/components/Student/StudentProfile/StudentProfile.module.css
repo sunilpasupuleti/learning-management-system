@@ -1,0 +1,8 @@
+.batchesContainer{
+  display: "flex";
+  flex-direction: "column"
+}
+
+.fieldPad {
+  padding: 23px 16px;
+}

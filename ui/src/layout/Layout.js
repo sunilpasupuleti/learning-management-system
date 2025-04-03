@@ -27,6 +27,9 @@ import CreateEditQuiz from "../components/Admin/Quiz/CreateEditQuiz";
 import { ReportsContextProvider } from "../services/Reports/Reports.context";
 import Reports from "../components/Admin/Reports/Reports";
 import ReportView from "../components/Admin/Reports/ReportView";
+import { UsersContextProvider } from "../services/users/users.context";
+import StudentProfile from "../components/Student/StudentProfile/StudentProfile";
+import Student from "../components/Student/Student";
 
 const Layout = (props) => {
   const location = useLocation();
@@ -65,6 +68,13 @@ const Layout = (props) => {
     );
   };
 
+  const StudentProfileElement = ({ title }) => {
+    return (
+      <UsersContextProvider>
+        <StudentProfile title={title} />
+      </UsersContextProvider>
+    );
+  };
   return (
     <SocketContextProvider>
       <AuthenticationContextProvider>
@@ -85,6 +95,52 @@ const Layout = (props) => {
               />
             </Route>
 
+            <Route
+              path="/student"
+              element={
+                <GetAuthGuard
+                  component={<Student title="Student" />}
+                  to={"/auth/signin"}
+                />
+              }
+            >
+              {/* <Route
+                  path="quiz"
+                  element={<StudentQuizElement title="Available Quizes" />}
+                />
+                <Route
+                  path="courses"
+                  element={<StudentCoursesElement title="Courses" />}
+                />
+
+                <Route
+                  path="courses/view"
+                  element={<StudentCoursesViewElement title="Course View" />}
+                />
+
+                <Route
+                  path="quiz/start"
+                  element={<StudentQuizStartElement title="Start Quiz" />}
+                />
+                <Route
+                  path="reports"
+                  element={<StudentReportsElement title="Reports" />}
+                />
+
+                <Route
+                  path="resources"
+                  element={<StudentResourcesElement title="Resources" />}
+                />
+
+                <Route
+                  path="reports/view"
+                  element={<StudentReportViewElement title="View Report" />}
+                /> */}
+              <Route
+                path="profile"
+                element={<StudentProfileElement title="Profile" />}
+              />
+            </Route>
             <Route
               path="/dashboard"
               element={
