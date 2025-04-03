@@ -1,0 +1,17 @@
+.actionButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem !important;
+}
+
+.openButton {
+  color: skyblue !important;
+  font-weight: bolder;
+  transition: all ease 0.5s;
+}
+
+.openButton:hover {
+  color: tomato !important;
+}

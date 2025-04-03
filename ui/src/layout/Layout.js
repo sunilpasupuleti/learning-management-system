@@ -30,6 +30,7 @@ import ReportView from "../components/Admin/Reports/ReportView";
 import { UsersContextProvider } from "../services/users/users.context";
 import StudentProfile from "../components/Student/StudentProfile/StudentProfile";
 import Student from "../components/Student/Student";
+import StudentResources from "../components/Student/StudentResources/StudentResources";
 
 const Layout = (props) => {
   const location = useLocation();
@@ -73,6 +74,14 @@ const Layout = (props) => {
       <UsersContextProvider>
         <StudentProfile title={title} />
       </UsersContextProvider>
+    );
+  };
+
+  const StudentResourcesElement = ({ title }) => {
+    return (
+      <ResourcesContextProvider>
+        <StudentResources title={title} />
+      </ResourcesContextProvider>
     );
   };
   return (
@@ -127,15 +136,16 @@ const Layout = (props) => {
                   element={<StudentReportsElement title="Reports" />}
                 />
 
-                <Route
-                  path="resources"
-                  element={<StudentResourcesElement title="Resources" />}
-                />
+             
 
                 <Route
                   path="reports/view"
                   element={<StudentReportViewElement title="View Report" />}
                 /> */}
+              <Route
+                path="resources"
+                element={<StudentResourcesElement title="Resources" />}
+              />
               <Route
                 path="profile"
                 element={<StudentProfileElement title="Profile" />}
