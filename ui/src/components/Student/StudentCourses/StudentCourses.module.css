@@ -1,0 +1,41 @@
+.courses {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.course {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+.courseTitle {
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+.courseHeadline {
+  color: grey;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+}
+
+.durationContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.totalDuration,
+.totalLectures {
+  color: #2d3032;
+  font-size: 0.9rem;
+  font-weight: lighter;
+}
+
+.banner {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}

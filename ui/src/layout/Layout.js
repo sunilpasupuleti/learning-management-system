@@ -31,6 +31,12 @@ import { UsersContextProvider } from "../services/users/users.context";
 import StudentProfile from "../components/Student/StudentProfile/StudentProfile";
 import Student from "../components/Student/Student";
 import StudentResources from "../components/Student/StudentResources/StudentResources";
+import StudentCourses from "../components/Student/StudentCourses/StudentCourses";
+import StudentCourseView from "../components/Student/StudentCourses/StudentCourseView";
+import StudentReports from "../components/Student/StudentReports/StudentReports";
+import StudentReportView from "../components/Student/StudentReports/StudentReportView";
+import { QuizContextProvider } from "../services/Quiz/Quiz.context";
+import StudentQuiz from "../components/Student/StudentQuiz/StudentQuiz";
 
 const Layout = (props) => {
   const location = useLocation();
@@ -84,6 +90,47 @@ const Layout = (props) => {
       </ResourcesContextProvider>
     );
   };
+
+  const StudentCoursesElement = ({ title }) => {
+    return (
+      <CourseContextProvider>
+        <StudentCourses title={title} />
+      </CourseContextProvider>
+    );
+  };
+
+  const StudentCoursesViewElement = ({ title }) => {
+    return (
+      <CourseContextProvider>
+        <StudentCourseView title={title} />
+      </CourseContextProvider>
+    );
+  };
+
+  const StudentReportsElement = ({ title }) => {
+    return (
+      <ReportsContextProvider>
+        <StudentReports title={title} />
+      </ReportsContextProvider>
+    );
+  };
+
+  const StudentReportViewElement = ({ title }) => {
+    return (
+      <ReportsContextProvider>
+        <StudentReportView title={title} />
+      </ReportsContextProvider>
+    );
+  };
+
+  const StudentQuizElement = ({ title }) => {
+    return (
+      <QuizContextProvider>
+        <StudentQuiz title={title} />
+      </QuizContextProvider>
+    );
+  };
+
   return (
     <SocketContextProvider>
       <AuthenticationContextProvider>
@@ -113,35 +160,37 @@ const Layout = (props) => {
                 />
               }
             >
-              {/* <Route
-                  path="quiz"
-                  element={<StudentQuizElement title="Available Quizes" />}
-                />
-                <Route
-                  path="courses"
-                  element={<StudentCoursesElement title="Courses" />}
-                />
-
-                <Route
-                  path="courses/view"
-                  element={<StudentCoursesViewElement title="Course View" />}
-                />
+              {/* 
 
                 <Route
                   path="quiz/start"
                   element={<StudentQuizStartElement title="Start Quiz" />}
                 />
-                <Route
-                  path="reports"
-                  element={<StudentReportsElement title="Reports" />}
-                />
+           */}
+              <Route
+                path="quiz"
+                element={<StudentQuizElement title="Available Quizes" />}
+              />
 
-             
+              <Route
+                path="reports"
+                element={<StudentReportsElement title="Reports" />}
+              />
 
-                <Route
-                  path="reports/view"
-                  element={<StudentReportViewElement title="View Report" />}
-                /> */}
+              <Route
+                path="reports/view"
+                element={<StudentReportViewElement title="View Report" />}
+              />
+
+              <Route
+                path="courses"
+                element={<StudentCoursesElement title="Courses" />}
+              />
+
+              <Route
+                path="courses/view"
+                element={<StudentCoursesViewElement title="Course View" />}
+              />
               <Route
                 path="resources"
                 element={<StudentResourcesElement title="Resources" />}

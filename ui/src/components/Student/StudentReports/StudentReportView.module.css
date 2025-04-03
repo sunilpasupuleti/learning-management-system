@@ -1,0 +1,237 @@
+.card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px !important;
+  margin-top: 50px;
+}
+
+.cardHeader {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardContent {
+  padding: 3rem;
+}
+
+.overviewItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  row-gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #ccc;
+}
+
+.overview .title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.overview .desc {
+  color: #606569;
+}
+
+.overview .icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.overview .title {
+  margin-top: 1rem;
+}
+
+.cardHeader .title {
+  font-weight: 500;
+}
+
+.cardHeader .date {
+  font-weight: lighter;
+  font-size: 1rem;
+}
+
+.cardHeader .date .lateSubmission {
+  color: tomato;
+}
+
+.card .date span {
+  font-weight: bolder;
+  color: green;
+}
+
+.perfCard .cardHeader {
+  background-color: var(--primary);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #fff;
+}
+.reviewCard .cardHeader {
+  border-radius: 10px;
+  font-size: 1.4rem;
+  /* color: #fff; */
+  /* background-color: var(--primary); */
+}
+.perfCard .cardContent {
+  padding: 2rem 2rem;
+}
+
+.perfContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+.perfContainer .perf {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.perfContainer .perf:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+}
+
+.perf .perfTitle {
+  font-size: 1.1rem;
+}
+
+.perf .perfDesc {
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+.qstnCard {
+  margin-top: 15px;
+}
+
+.qstnCardHeader {
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.qstnCardHeader .title {
+  font-size: 1rem;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.qstnCardHeader .status {
+  margin-right: 2rem;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+}
+
+.qstnCardHeader.green {
+  background-color: #d9ede8;
+}
+
+.qstnCardHeader.green .status {
+  background-color: #4cae4e;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.statusContainer .status {
+  margin-right: 0rem;
+}
+
+.qstnCardHeader .statusText {
+  font-size: 1rem;
+}
+
+.qstnCardHeader.red {
+  background-color: #f4d6d5;
+}
+
+.qstnCardHeader.red .status {
+  background-color: #f54236;
+}
+
+.qstnCardContent {
+  padding: 1rem;
+}
+
+.qstn {
+  color: #606569;
+}
+
+.optionsContainer {
+  margin: 1rem 0rem;
+}
+
+.optionsContainer .option {
+  margin-top: 0.5rem;
+}
+.optionsContainer .optionText {
+  font-size: 1rem;
+}
+
+.optionsContainer .chipContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chipContainer .chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  padding: 0.2rem 1rem;
+  border-radius: 50px;
+}
+
+.chipContainer .chip.wrong {
+  background-color: #f4d6d5;
+  color: #f54236;
+}
+
+.chipContainer .chip.right {
+  background-color: #d9ede8;
+  color: #4cae4e;
+}
+
+.optionsContainer .chipIcon {
+  margin-top: 0.5px;
+}
+
+.perfChart {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .qstnCardHeader {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+
+  .perfChart {
+    height: 300px;
+    width: 300px;
+  }
+}

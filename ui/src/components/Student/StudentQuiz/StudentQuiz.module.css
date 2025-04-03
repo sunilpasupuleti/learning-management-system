@@ -1,0 +1,100 @@
+.overviewContainer {
+  margin-top: 1rem;
+}
+
+.overviewContainer .quizTitle {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.overviewContainer .descriptionContainer {
+  margin-top: 1rem;
+}
+
+.descriptionContainer .description {
+  margin: 1rem 0rem 2rem 0rem;
+  margin-left: 1.5rem;
+}
+
+.overviewContainer .instructionsContainer {
+  margin-top: 1.5rem;
+  text-align: justify;
+}
+
+.instructionsContainer .instructions {
+  margin: 0.5rem 0rem 2rem 0rem;
+}
+
+.instructionsContainer .instructions ul {
+  margin-left: 2rem;
+}
+
+.instructionsContainer .instructions ul li {
+  list-style: circle;
+  letter-spacing: 0.7px;
+  list-style-type: decimal;
+  padding-top: 1.3rem;
+}
+
+.detailContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.detailContainer .detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailContainer .detail .title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.detailContainer .detail .desc {
+  font-size: 1.1rem;
+  color: grey;
+  margin-bottom: 5px;
+}
+
+.detailContainer .detailIcon {
+  border-radius: 50px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 1.8rem;
+}
+
+.detailContainer .detailIcon.questions {
+  background-color: rgba(95, 45, 237, 0.1);
+  color: var(--primary);
+}
+
+.detailContainer .detailIcon.timer {
+  background-color: rgba(61, 193, 252, 0.1);
+  color: #3dc1fc;
+}
+
+.detailContainer .detailIcon.marks {
+  color: #fe678e;
+  background-color: rgba(254, 103, 142, 0.1);
+}
+
+.detailContainer .detailIcon.pass {
+  color: #1bc48b;
+  background-color: rgba(27, 196, 139, 0.1);
+}
+
+.detailContainer .detailIcon.attemptsRemain {
+  color: red;
+  background-color: rgba(255, 98, 71, 0.1);
+}
+
+.detailContainer .detailIcon.attemptsTaken {
+  color: #aaa;
+  background-color: rgba(204, 204, 204, 0.1);
+}
