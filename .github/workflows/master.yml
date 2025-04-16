@@ -1,0 +1,68 @@
+on:
+  push:
+    branches:
+      - master
+name: 🚀 Deploy to VPS
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Repository Name
+        run: |
+          if [ "${{ github.repository }}" == "sunilpasupuleti/learning-management-system" ]; then
+            echo "Processing Workflow for webwizard"
+            # Add your steps for Repo 1 here
+          else
+            echo "Unsupported Repository for Repo 1"
+            exit 1
+          fi
+
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: DEPLOY CODE TO VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST_NAME }}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASS_WORD }}
+          port: ${{ secrets.PORT }}
+          source: ./*
+          target: /root/lms
+
+      - name: Run the application
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.HOST_NAME}}
+          username: ${{secrets.USER_NAME}}
+          password: ${{secrets.PASS_WORD}}
+          port: ${{secrets.PORT}}
+          script: |
+            source ~/.bashrc
+            source ~/.nvm/nvm.sh
+            npm i -g create-react-app
+            cd /root/lms/ui
+
+            rm .env
+            touch .env
+            echo "${{secrets.WEB_ENV_FILE}}" | base64 --decode > .env
+            yarn install
+            npm run build
+            cp -a dist/. /var/www/lms.webwizard.in
+
+            cd ../backend/
+
+            docker stop lms-backend
+            docker rm  lms-backend
+            docker rmi lms-backend
+
+            rm config/.env
+
+            touch config/.env
+
+            echo "${{secrets.BACKEND_ENV_FILE}}" | base64 --decode > config/.env
+
+            cd ..
+
+            docker compose up -d

@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: lms-backend
+    container_name: lms-backend
+    restart: always
+    volumes:
+      - ./backend:/lms/backend
+      - /lms/backend/node_modules
+    ports:
+      - "3002:3002"
+    networks:
+      - lms
+
+networks:
+  lms:
+    driver: bridge
+
+volumes:
+  node_modules:
+  web-root:
+    driver: local

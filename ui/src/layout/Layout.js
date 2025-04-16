@@ -37,6 +37,7 @@ import StudentReports from "../components/Student/StudentReports/StudentReports"
 import StudentReportView from "../components/Student/StudentReports/StudentReportView";
 import { QuizContextProvider } from "../services/Quiz/Quiz.context";
 import StudentQuiz from "../components/Student/StudentQuiz/StudentQuiz";
+import StudentQuizStart from "../components/Student/StudentQuiz/StudentQuizStart";
 
 const Layout = (props) => {
   const location = useLocation();
@@ -131,6 +132,14 @@ const Layout = (props) => {
     );
   };
 
+  const StudentQuizStartElement = ({ title }) => {
+    return (
+      <QuizContextProvider>
+        <StudentQuizStart title={title} />
+      </QuizContextProvider>
+    );
+  };
+
   return (
     <SocketContextProvider>
       <AuthenticationContextProvider>
@@ -160,13 +169,10 @@ const Layout = (props) => {
                 />
               }
             >
-              {/* 
-
-                <Route
-                  path="quiz/start"
-                  element={<StudentQuizStartElement title="Start Quiz" />}
-                />
-           */}
+              <Route
+                path="quiz/start"
+                element={<StudentQuizStartElement title="Start Quiz" />}
+              />
               <Route
                 path="quiz"
                 element={<StudentQuizElement title="Available Quizes" />}
